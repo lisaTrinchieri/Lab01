@@ -8,12 +8,12 @@ import java.util.ResourceBundle;
 
 import it.polito.tdp.parole.model.Parole;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
 
 public class FXMLController {
 	
@@ -43,6 +43,7 @@ public class FXMLController {
     @FXML
     void doInsert(ActionEvent event) {
     	
+       Long linizio = System.nanoTime();
     	
        txtResult.clear();
        String parola = txtParola.getText();
@@ -57,8 +58,8 @@ public class FXMLController {
        
           txtParola.clear();
           
-          Long l = System.nanoTime();
-      	  txtTime.appendText(""+l);
+          Long lfine = System.nanoTime();
+      	  txtTime.appendText("Inizio: "+linizio+" Fine: "+lfine);
       	  txtTime.appendText("\n");
     
     }  
@@ -66,19 +67,22 @@ public class FXMLController {
     @FXML
     void doReset(ActionEvent event) {
     	
+    	Long linizio = System.nanoTime();
+    	
     	elenco.reset();
     	txtResult.clear();
     	txtParola.clear();
     	
-    	Long l = System.nanoTime();
-    	txtTime.appendText(""+l);
+    	Long lfine = System.nanoTime();
+    	txtTime.appendText("Inizio: "+linizio+" Fine: "+lfine);
     	txtTime.appendText("\n");
     }
     
     @FXML
     void handleDelete(ActionEvent event) {
     	
-   
+    	Long linizio = System.nanoTime();
+    	
     	String selected = txtResult.getSelectedText();
     	
     	elenco.eliminaParola(selected);
@@ -91,16 +95,15 @@ public class FXMLController {
          {  txtResult.appendText(p);
       	    txtResult.appendText("\n");   }
     	
-    	Long l = System.nanoTime();
-    	txtTime.appendText(""+l);
+    	
+    	Long lfine = System.nanoTime();
+    	txtTime.appendText("Inizio: "+linizio+" Fine: "+lfine);
     	txtTime.appendText("\n");
         
     }
     
-
     @FXML
     void seleziona(MouseEvent event) {
-    	
 
     }
 
