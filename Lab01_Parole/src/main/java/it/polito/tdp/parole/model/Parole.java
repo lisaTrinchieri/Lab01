@@ -7,6 +7,8 @@ import javafx.scene.input.MouseEvent;
 
 public class Parole implements Comparable<String>{   
 	
+	
+	/////TREEMAP
 /*	private TreeMap<String, String> paroleOrdinate;
 		
 	public Parole() {
@@ -33,7 +35,10 @@ public class Parole implements Comparable<String>{
 		this.paroleOrdinate.remove(s);		
 	}    */ 
 	
-	private List<String> parole;
+	
+	
+	////LINKEDLIST
+/*	private List<String> parole;
 	
     public Parole() {
 		parole = new LinkedList<String>();
@@ -72,6 +77,51 @@ public class Parole implements Comparable<String>{
 		return this.compareTo(str);
 	}
 	
+	*/
 	
+	private ArrayList<String> parole;
+	
+	public Parole() {
+		parole = new ArrayList<String>();
+	}
+	
+	public void addParola(String p) {
+		parole.add(p);
+	}
+	
+    public List<String> getElenco() {
+		
+		Collections.sort(this.parole);
+		
+		return this.parole;
+	}
+	
+	
+	public void reset() {
+		this.parole.clear();
+	}
+	
+	
+     public void eliminaParola(String s)  {
+		
+		int index =0;
+		
+		for(int i =0; i<parole.size(); i++)
+			if(parole.get(i).equals(s))
+				index = i;
+		
+		parole.remove(index);
+		
+	}
+	
+	
+	
+	@Override
+	public int compareTo(String str) {
+		return this.compareTo(str);
+	}
+	
+	
+	 
 
 }
